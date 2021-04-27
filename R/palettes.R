@@ -162,7 +162,12 @@ scale_colour_wolves <- function(palette = "wooly_bully",
   pal <- wwfc_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    ggplot2::discrete_scale("colour", paste0("wwfc_", palette), palette = pal, ...)
+    ggplot2::discrete_scale(
+      "colour",
+      paste0("wwfc_", palette),
+      palette = pal,
+      ...
+      )
   } else {
     ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
@@ -193,11 +198,19 @@ scale_colour_wolves <- function(palette = "wooly_bully",
 #'   scale_fill_wolves(palette = "wooly_bully", guide = "none") +
 #'   labs(title = "scale_fill_wolves() can generate many colours from a palette",
 #'        subtitle = "Using colour in this way (despite consistent data type) is not recommended!")
-scale_fill_wolves <- function(palette = "wooly_bully", discrete = TRUE, reverse = FALSE, ...) {
+scale_fill_wolves <- function(palette = "wooly_bully",
+                              discrete = TRUE,
+                              reverse = FALSE,
+                              ...) {
   pal <- wwfc_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    ggplot2::discrete_scale("fill", paste0("wwfc_", palette), palette = pal, ...)
+    ggplot2::discrete_scale(
+      "fill",
+      paste0("wwfc_", palette),
+      palette = pal,
+      ...
+      )
   } else {
     ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
